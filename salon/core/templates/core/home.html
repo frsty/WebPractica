@@ -1,50 +1,8 @@
-<!doctype html>
-<html lang="es">
+{% extends 'core/base.html' %}
 
-<head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% load static %}
 
-    <!-- Bootstrap CSS -->
-    {% load static %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-
-    <link rel="stylesheet" href="{% static 'core/bootstrap-4.4.1-dist/css/bootstrap.min.css' %}" />
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script src="{% static 'core/bootstrap-4.4.1-dist/js/bootstrap.min.js' %}"></script>
-    <!-- Otos estilos-->
-    
-    <link rel="stylesheet" href="{% static 'core/css/iconBar.css' %}">
-    <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
-</head>
-
-<body>
-
-    <nav class="navbar navbar-expand-sm navbar-light bg-warning sticky-top">
-        <a class="navbar-brand" href="index.html">
-            <img src="{% static 'core/img/logo.jpg' %}" alt="logo" style="width:40px;">
-        </a>
-        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
-            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Stylist</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="" >Nosotros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Galeria</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+{% block content %}
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-3 " id="tituloGrande">Salon de Belleza Integral</h1>
@@ -95,7 +53,7 @@
             </div>
             <br>
             <p class="lead">
-                <a class="btn btn-primary btn-lg" href="" role="button">Agendar</a>
+                <a class="btn btn-primary btn-lg" href="{% url 'agendar' %}" role="button">Agendar</a>
             </p>
         </div>
     </div>
@@ -183,9 +141,4 @@
         </div>
        
     </div>   
-  
-
-
-</body>
-
-</html>
+{% endblock %}
