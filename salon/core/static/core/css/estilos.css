@@ -1,6 +1,6 @@
 *{
-    margin: 0%;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 .carousel-inner .ruleta {
@@ -37,7 +37,7 @@ body {
        background-color: #faebfc;
 }
 
-.jumbotron{
+#inicio{
     /* background-color: #b8ffb8; */
     background-color:  #cfffcf;
     background-image: url("../img/fondos/unnamed.jpg");
@@ -52,6 +52,7 @@ body {
 
 h3{
     text-align: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 div.division{
@@ -59,4 +60,14 @@ div.division{
     height: 50px;
     background-color:#bcfca7;
 }
-
+.row{
+    margin:0;
+    padding: 0;
+}
+h2{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+}
+#footer{
+    background-color: #d4ffd4;
+}
