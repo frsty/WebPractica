@@ -20,8 +20,8 @@ div#banner{
 }
 
 h1#tituloGrande{
-    font-style:italic;
-    font-family:'Helvetica','Verdana','Monaco',sans-serif;
+    
+    font-family:'Segoe Print';
 }
 h1.display-3{
     font-weight: 700;
