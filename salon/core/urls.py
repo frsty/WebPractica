@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import *
+from .views import Home, Agendar
 
 
 urlpatterns = [
-    path('', home, name="home"),
-    path('agendar/',agendar, name="agendar"),
+    path('', Home, name="home"),
+    path('agendar/', Agendar, name="agendar"),
 ]

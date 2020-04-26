@@ -3,15 +3,18 @@ from .models import Servicio
 
 # Create your views here.
 
-def home(request):
-    return render(request,'core/home.html')
-
-def agendar(request):
-    return render(request, 'core/agendar.html')
-
-def ListaServicio(request):
+def Home(request):
+    #para ver los precios en el home 
     serv = Servicio.objects.all()
     data = {
         'servicio':serv
     }
-    return render(request,'core/home.html', data)
+    return render(request, 'core/home.html', data)
+    
+
+def Agendar(request):
+    return render(request, 'core/agendar.html')
+
+
+    
+
