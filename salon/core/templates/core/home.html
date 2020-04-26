@@ -7,216 +7,176 @@
 {% endblock %}
 
 {% block content %}
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-3 " id="tituloGrande">Salon de Belleza Integral</h1>
-            <p class="lead">Estilista Paola Toledo</p>
-            <div id="banner">
-                <div class="row">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-8">
-                        <div id=banner>
-                            <div id="carouselId" class="carousel slide" data-ride="carousel">
-                                <ol class="carousel-indicators">
-                                    <li data-target="#carouselId" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carouselId" data-slide-to="1"></li>
-                                    <li data-target="#carouselId" data-slide-to="2"></li>
-                                    <li data-target="#carouselId" data-slide-to="3"></li>
-                                </ol>
-                                <div class="carousel-inner" role="listbox">
-                                    <div class="carousel-item active">
-                                        <img src="{% static 'core/img/of1.jpg' %}" class="ruleta mx-auto d-block img-fluid">
-                                        <div class="carousel-caption d-none d-md-block">
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="{% static 'core/img/of2.jpg' %}" class="ruleta mx-auto d-block img-fluid" >
-                                        <div class="carousel-caption d-none d-md-block">>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="{% static 'core/img/of3.jpg' %}" class="ruleta mx-auto d-block img-fluid">
-                                        <div class="carousel-caption d-none d-md-block">
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="{% static 'core/img/of4.jpg' %}" class="ruleta mx-auto d-block img-fluid">
-                                        <div class="carousel-caption d-none d-md-block">
-                                        </div>
+
+<div class="jumbotron jumbotron-fluid" id="inicio">
+    <div class="container">
+        <h1 class="display-3 " id="tituloGrande">Salon de Belleza Integral</h1>
+        <p class="lead">Estilista Paola Toledo</p>
+        <div id="banner">
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <div id=banner>
+                        <div id="carouselId" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselId" data-slide-to="1"></li>
+                                <li data-target="#carouselId" data-slide-to="2"></li>
+                                <li data-target="#carouselId" data-slide-to="3"></li>
+                            </ol>
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active">
+                                    <img src="{% static 'core/img/of1.jpg' %}" class="ruleta mx-auto d-block img-fluid">
+                                    <div class="carousel-caption d-none d-md-block">
                                     </div>
                                 </div>
-                        
-                                </div> 
+                                <div class="carousel-item">
+                                    <img src="{% static 'core/img/of2.jpg' %}" class="ruleta mx-auto d-block img-fluid" >
+                                    <div class="carousel-caption d-none d-md-block">>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'core/img/of3.jpg' %}" class="ruleta mx-auto d-block img-fluid">
+                                    <div class="carousel-caption d-none d-md-block">
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'core/img/of4.jpg' %}" class="ruleta mx-auto d-block img-fluid">
+                                    <div class="carousel-caption d-none d-md-block">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        </div>
-                        
-                    <div class="col-sm-2"></div>
-                  
-                
-            </div>
-            <br>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="{% url 'agendar' %}" role="button">Agendar</a>
-            </p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="icon-bar">
-            <a href="#" class="fa fa-facebook"></a>
-            <a href="#" class="fa fa-instagram"></a>
-        </div>
-
-    </div>
-    <br>
-    <div class="division"></div>
-    <br> 
-    <div id="historia" class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <h3>Misión y Visión</h3>
-                <br>
-                    <img src="{% static 'core/img/logo.jpg' %}" class="imagen img-fluid rounded-circle float-left mx-auto d-block">
-            </div>
-            <div class="col-sm-6">
-                <br><br>
-                <h2>Mision</h2>
-                <br>
-                <p>Ser un salón de belleza confiable y al servicio de nuestras clientas, 
-                    entregando un ambiente familiar, grato y de relajación. 
-                    Actualizados en la última tendencia de moda y estilos.
-
-                </p>
-                <br>
-                <h2>Visión</h2>
-                <br>
-                <p>
-                     Soñamos con volvernos la opción más confiable para 
-                    manejar tu estilo y cambios de look, utilizando productos de alta calidad 
-                    y grato ambiente.
-                </p>
-            </div>
-        </div> 
-           
-    </div> 
-</div>
-    <br>
-    <div class="division"></div>
-    <br>
-    <div id="Trabajos" class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <h2>Nuestros clientes</h2>
-                <p>
-                    Queremos darle a nuestros clientes
-                     la mejor asesoría para enseñarles 
-                     a potenciar sus cualidades y conseguir un look
-                    y potenciar sus cualidades</p>
-            </div>
-            <div class="col-sm-6">
-                <h3>Trabajos</h3>
-                <br>
-                <div id="carouselId" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselId" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselId" data-slide-to="1"></li>
-                        <li data-target="#carouselId" data-slide-to="2"></li>
-                        <li data-target="#carouselId" data-slide-to="3"></li>
-                    </ol>
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active">
-                            <img src="{% static 'core/img/of1.jpg' %}" class="imagen mx-auto d-block img-fluid img-thumbnail">
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{% static 'core/img/of2.jpg' %}" class="imagen mx-auto d-block img-fluid img-thumbnail" >
-                            <div class="carousel-caption d-none d-md-block">>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{% static 'core/img/of3.jpg' %}" class="imagen mx-auto d-block img-fluid img-thumbnail">
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{% static 'core/img/of4.jpg' %}" class="imagen mx-auto d-block img-fluid img-thumbnail">
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
+                    
+                            </div> 
                         </div>
                     </div>
-            </div>
+                    </div>
+                    
+                <div class="col-sm-2"></div>
+              
+            
         </div>
-        
-    </div>        
-    </div>
-    <br>
-    <div class="division"></div>
-    <br> 
-    <div id="listaPrecios" class="container">
-        <h2>Listado de precios</h2>
         <br>
-        <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6">
-                <table class="table table-striped">
-                    <thead>
-                      <tr class="thead-dark"> 
-                          <!-- Encabezado tabla -->
-                        <th>Servicio</th>
-                        <th>Precio</th>             
-                      </tr>
-                    </thead>
-                    <tbody>
-                        <!-- filas -->
-                    <tr class="table-info">
-                        <td>nombre servicio</td>
-                        <td>- insertar <strong>$precio.-</strong></td>
-                    </tr>
-                    <tr class="table-info">
-                        <td>nombre servicio</td>
-                        <td>- insertar <strong>$precio.-</strong></td>
-                    </tr>
-                    <tr class="table-info">
-                        <td>nombre servicio</td>
-                        <td>- insertar <strong>$precio.-</strong></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-sm-3"></div>
-        </div>
-
-        
-    </div> 
-       <br><br><br>
-       <!-- Footer    -->
-       <div class="jumbotron jumbotron-fluid" style="margin-bottom:0; width: 100%;" id="footer">
-        <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-4">
-                <h4>Fundadores</h4>
-                <br>
-                <p><strong>Paola Toledo</strong>, Estilista y Colorista.</p>
-                <p><strong>Hernán Hernández</strong>, Inversionista Fundador.</p>
-                <p><strong>Armando Martínez</strong>, Encargado de Comunicaciones y Masajista.</p>
-            </div>
-            <div class="col-sm-1"></div>
-            <div class="col-sm-5">
-                <h4>Contacto</h4>
-                <br>
-                <p><strong>Dirección:</strong> Pasaje Ocho 828, San Marcos 2000, Talcahuano.</p>
-                <p><strong>Fono:</strong> </p>
-                <p> +56 9 5644 5216.</p>
-                <p> +56 9 3093 1102.</p>
-                <p><strong>Mail:</strong> <a href="mailto:paolatoledostylist@gmail.com?Subject=Contacto">
-                    paolatoledostylist@gmail.com</a>.</p>
-                <p><strong>Redes Sociales: </strong>
-                    <a href="https://www.facebook.com/paolatoledostylist/">Facebook</a>
-                      
-                    <a href="https://www.instagram.com/paolatoledostylist/">Instagram</a></p>
-            </div>
-            <div class="col-sm-1"></div>
-        </div>           
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'agendar' %}" role="button">Agendar</a>
+        </p>
     </div>
+</div>
+<div class="row">
+    <div class="icon-bar">
+        <a href="https://www.facebook.com/paolatoledostylist/" class="fa fa-facebook"></a>
+        <a href="https://www.instagram.com/paolatoledostylist/" class="fa fa-instagram"></a>
+    </div>
+</div>
+
+<br>
+<div class="division" id="historia"></div>
+<br><br><br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Misión y Visión</h3>
+            <br>
+                <img src="{% static 'core/img/logo.jpg' %}" class="imagen img-fluid rounded-circle float-left mx-auto d-block">
+        </div>
+        <div class="col-sm-6">
+            <br><br>
+            <h2>Mision</h2>
+            <br>
+            <p>Ser un salón de belleza confiable y al servicio de nuestras clientas, 
+                entregando un ambiente familiar, grato y de relajación. 
+                Actualizados en la última tendencia de moda y estilos.
+
+            </p>
+            <br>
+            <h2>Visión</h2>
+            <br>
+            <p>
+                 Soñamos con volvernos la opción más confiable para 
+                manejar tu estilo y cambios de look, utilizando productos de alta calidad 
+                y grato ambiente.
+            </p>
+        </div>
+    </div> 
+       
+</div> 
+<br>
+<br>
+<br>
+<div id="sobreNosotros" class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>Sobre Nosotros</h2>
+            <h6 style="margin-top: 30%; text-align:center;">
+                Queremos darle a nuestros clientes
+                 la mejor asesoría para enseñarles 
+                 a potenciar sus cualidades y conseguir un look
+                y potenciar sus cualidades</h6>
+        </div>
+        <div class="col-sm-6">
+            <h3>Trabajos</h3>
+            <br>
+            <div id="carouselId" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselId" data-slide-to="1"></li>
+                    <li data-target="#carouselId" data-slide-to="2"></li>
+                    <li data-target="#carouselId" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <img src="{% static 'core/img/of1.jpg' %}" class="imagen mx-auto d-block img-fluid img-thumbnail">
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'core/img/of2.jpg' %}" class="imagen mx-auto d-block img-fluid img-thumbnail" >
+                        <div class="carousel-caption d-none d-md-block">>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'core/img/of3.jpg' %}" class="imagen mx-auto d-block img-fluid img-thumbnail">
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'core/img/of4.jpg' %}" class="imagen mx-auto d-block img-fluid img-thumbnail">
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+<br>
+<div class="division" id="precios"></div>
+<br>
+<div id="listaPrecios" class="container">
+    <h2>Listado de precios</h2>
+    <br>
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <table class="table table-striped">
+                <tr>
+                    <th>Servicio</th>
+                    <th>precio</th>
+
+                </tr>
+                {% for s in servicio %}
+                <tr>
+                    <td>{{s.nombre}}</td>
+                    <td>{{s.precio}}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+        
+    </div>
+</div>
+        
 {% endblock %}

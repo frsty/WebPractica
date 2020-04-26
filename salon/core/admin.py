@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import *
+from .models import Reserva, Servicio
 
 # Register your models here.
 
@@ -9,6 +9,9 @@ class ReservaAdmin(admin.ModelAdmin):
     list_filter = ['servi']
     list_per_page = 10
 
+class ServicioAdmin(admin.ModelAdmin):
+    list_display = ['nombre','precio']
 
-admin.site.register(Servicio)
+
+admin.site.register(Servicio, ServicioAdmin)
 admin.site.register(Reserva, ReservaAdmin)
