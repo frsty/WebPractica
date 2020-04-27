@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Title</title>
+    <title>Stylist</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     {% block css%}
+
+    {% endblock %}
+    {% block js %}
 
     {% endblock %}
     <link rel="stylesheet" href="{% static 'core/bootstrap-4.4.1-dist/css/bootstrap.min.css' %}" />
@@ -52,8 +55,8 @@
     </nav>
     <div class="row">
         <div class="icon-bar">
-            <a href="https://www.facebook.com/paolatoledostylist/" class="fa fa-facebook"></a>
-            <a href="https://www.instagram.com/paolatoledostylist/" class="fa fa-instagram"></a>
+            <a href="https://www.facebook.com/paolatoledostylist/" target="_blank" class="fa fa-facebook"></a>
+            <a href="https://www.instagram.com/paolatoledostylist/" target="_blank" class="fa fa-instagram"></a>
         </div>
     </div>
  {% block content %} 
@@ -64,7 +67,7 @@
     <div class="jumbotron jumbotron-fluid" style="margin-bottom:0; width: 100%;" id="footer">
         <div class="row">
             <div class="col-sm-1"></div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <h4>Fundadores</h4>
                 <br>
                 <p><strong>Paola Toledo</strong>, Estilista y Colorista.</p>
@@ -72,7 +75,7 @@
                 <p><strong>Armando Martínez</strong>, Encargado de Comunicaciones y Masajista.</p>
             </div>
             <div class="col-sm-1"></div>
-            <div class="col-sm-5">
+            <div class="col-sm-3">
                 <h4>Contacto</h4>
                 <br>
                 <p><strong>Dirección:</strong> Pasaje Ocho 828, San Marcos 2000, Talcahuano.</p>
@@ -82,11 +85,15 @@
                 <p><strong>Mail:</strong> <a href="mailto:paolatoledostylist@gmail.com?Subject=Contacto">
                     paolatoledostylist@gmail.com</a>.</p>
                 <p><strong>Redes Sociales: </strong>
-                    <a href="https://www.facebook.com/paolatoledostylist/">Facebook</a>
+                    <a href="https://www.facebook.com/paolatoledostylist/" target="_blank">Facebook</a>
                       
-                    <a href="https://www.instagram.com/paolatoledostylist/">Instagram</a></p>
+                    <a href="https://www.instagram.com/paolatoledostylist/" target="_blank">Instagram</a></p>
             </div>
-            
+            <div class="col-sm-3">
+                <div class="container" >
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1130.2591855932167!2d-73.08240886470522!3d-36.750033663907146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96684aaeaee47d51%3A0x6fade6ac7040d37c!2zUGplLiA4IDgyOCwgVGFsY2FodWFubywgQsOtbyBCw61v!5e0!3m2!1ses-419!2scl!4v1587955788000!5m2!1ses-419!2scl" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>    
+            </div>
         </div>
     </div>           
 </footer>
