@@ -14,9 +14,7 @@
     {% block css%}
 
     {% endblock %}
-    {% block js %}
 
-    {% endblock %}
     <link rel="stylesheet" href="{% static 'core/bootstrap-4.4.1-dist/css/bootstrap.min.css' %}" />
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="{% static 'core/bootstrap-4.4.1-dist/js/bootstrap.min.js' %}"></script>
@@ -50,6 +48,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#precios">Precios</a>
                 </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">{{ user.username }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Cerrar sesion</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Iniciar sesion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'registro_usuario' %}">Registrar</a>
+                </li>
+                {% endif %}
+                
             </ul>
         </div>
     </nav>

@@ -1,6 +1,9 @@
-var AsignaPrecio = function(){
 
-    var nom = document.getElementById("cbService").value
-   
+var hora = document.getElementById("txtHora").value
+
+function Horario(){
+
+  
+    
 
 }
