@@ -1,5 +1,5 @@
 
-var hora = document.getElementById("txtHora").value
+let hora = document.getElementById("txtHora").value
 
 function Horario(){
 
