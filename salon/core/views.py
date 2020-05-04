@@ -1,7 +1,9 @@
+from django.conf import settings
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from .models import Servicio, Reserva
 from django.contrib.auth.decorators import login_required 
-from .forms import CustomUserForm
+from .forms import CustomUserForm, ContactForm
 from django.contrib.auth import login, authenticate
 
 
@@ -10,9 +12,31 @@ from django.contrib.auth import login, authenticate
 def Home(request):
     #para ver los precios en el home 
     serv = Servicio.objects.all()
+    #form contacto
+    form = ContactForm(request.POST or None)
+    if form.is_valid():
+        form_email = form.cleaned_data.get("email")
+        form_mensaje = form.cleaned_data.get("mensaje")
+        form_nombre = form.cleaned_data.get("nombre")
+        form_telefono = form.cleaned_data.get("telefono")
+        #esto envia correo ver settings para cambiar correo
+        asunto = "Consulta de %s" %(form_nombre)
+        email_from = settings.EMAIL_HOST_USER
+        email_to = [email_from]
+        email_mensaje = '''Nombre: %s telefono de contacto: %s 
+            duda: %s Correo de contacto %s''' %(form_nombre, form_telefono, form_mensaje, form_email)
+        send_mail(asunto,
+            email_mensaje,
+            email_from,
+            email_to,
+            fail_silently=True)
+
+
     data = {
-        'servicio':serv
+        'servicio':serv,
+        'form':form
     }
+
     return render(request, 'core/home.html', data)
     
 @login_required
@@ -39,24 +63,3 @@ def Agendar(request):
         agenda.save()
 
     return render(request, 'core/agendar.html',data)
-
-
-def registro_usuario(request):
-    data = {
-        'form':CustomUserForm()
-    }
-
-    if request.method == 'POST':
-        formulario = CustomUserForm(request.POST)
-        if formulario.is_valid():
-            formulario.save()
-            #login en la pagina altiro
-            username = formulario.cleaned_data['username']
-            password = formulario.cleaned_data['password1']
-            user = authenticate(username = username, password = password)
-            login(request, user)
-
-            return redirect(to='home')
-
-    return render(request, 'registration/registrar.html',data)
-

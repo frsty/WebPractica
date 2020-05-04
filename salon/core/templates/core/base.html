@@ -10,7 +10,7 @@
     <!-- Bootstrap CSS -->
     {% load static %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     {% block css%}
 
     {% endblock %}
@@ -21,7 +21,7 @@
     <!-- Otos estilos-->
     <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
     <link rel="stylesheet" href="{% static 'core/css/iconBar.css' %}">
-    
+
 </head>
 
 <body>
@@ -31,8 +31,9 @@
             <a class="navbar-brand" href="{% url 'home' %}">
                 <img src="{% static  'core/img/logo.jpg' %}" alt="logo" style="width:40px;">
             </a>
-            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
-                aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -41,11 +42,13 @@
                         <a class="nav-link" href="{% url 'home' %}">Stylist</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#historia" >Nosotros</a>
+                        <a class="nav-link" href="#historia">Nosotros</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#precios">Precios</a>
                     </li>
+                </ul>
+                <ul class="navbar-nav  navbar-nav right">
                     {% if user.is_authenticated %}
                     <li class="nav-item active">
                         <a class="nav-link" href="#">{{ user.username }}</a>
@@ -58,10 +61,9 @@
                         <a class="nav-link" href="{% url 'login' %}">Iniciar sesion</a>
                     </li>
                     <li class="nav-item active ">
-                        <a class="nav-link" href="{% url 'registro_usuario' %}">Registrar</a>
+                        <a class="nav-link" href="">Registrar</a>
                     </li>
                     {% endif %}
-                    
                 </ul>
             </div>
         </nav>
@@ -72,21 +74,22 @@
             <a href="https://www.instagram.com/paolatoledostylist/" target="_blank" class="fa fa-instagram"></a>
         </div>
     </div>
-    
- {% block content %} 
 
- {% endblock %}
-  
-<footer>
+    {% block content %}
 
-    
-    <div class="row">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-10">
-            <p class="fundadores" style="text-align: center;">Paola Toledo | Armando Martínez | Hernán Hernández</p>
+    {% endblock %}
+
+    <footer>
+
+
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <p class="fundadores" style="text-align: center;">Paola Toledo | Armando Martínez | Hernán Hernández</p>
+            </div>
+            <div class="col-sm-1"></div>
         </div>
-        <div class="col-sm-1"></div>
-    </div>          
-</footer>
+    </footer>
 </body>
+
 </html>
