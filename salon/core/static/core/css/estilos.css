@@ -140,3 +140,18 @@ h2{
   #myBtn:hover {
     background-color: #cfffdf; /* Add a dark-grey background on hover */
   }
+  .circleButton {
+    width: 13rem;
+    height: 13rem;
+    display: flex;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #5cb85c;
+    justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.textoAgendar{
+    color: whitesmoke;
+}
