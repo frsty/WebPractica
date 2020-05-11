@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <form action="" method="POST">
-        {% csrf_token %}
-        <table>
-            {{form.as_table}}
-        </table>
-        <input type="submit" value="Ingresar">
-    </form>
+{% extends "base.html" %}
+{% load i18n %}
 
-</body>
-</html>
+{% block content %}
+<form method="post" action=".">
+  {% csrf_token %} 
+  {{ form.as_p }}
+
+  <input type="submit" value="{% trans 'Iniciar sesion' %}" />
+  <input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+<p>{% trans "Has olvidado tu contrasena" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Restablecer" %}</a>!</p>
+<p>{% trans "No tienes cuenta" %}? <a href="{% url 'registration_register' %}">{% trans "Registrarte" %}</a>!</p>
+{% endblock %}

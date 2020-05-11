@@ -132,23 +132,22 @@
 <br>
 <div class="division" id="precios"></div>
 <br>
-
-<div class="col-sm-6">
-    <form method="POST" action="">
-        {% csrf_token %}
-        <div class="card text-left">
-            <div class="card-body" id="correo">
-                <h4 class="card-title">Contactenos</h4>
-                <table>
-                    {{form.as_table}}
-                </table>
-                <a href=""><button type="submit" class="btn btn-primary">Enviar</button></a>
-            </div>
-        </div>
-    </form>
+<div class="row">
+    <div class="col-sm-4" >
+    </div>
+    <div class='col-sm-4 col-sm-offset-3' id="contacto">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <h4 class="card-title">Contactenos</h4>
+            <table>
+                {{form.as_table}}
+            </table>
+            <a href=""><button type="submit" class="btn btn-primary">Enviar</button></a>
+        </form>
+    </div>
 
 </div>
-
+<br>
 
 
 <script>
