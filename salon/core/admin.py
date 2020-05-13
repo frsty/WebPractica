@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Reserva, Servicio
+from .models import Reserva, Servicio, TipoServicio
 
 # Register your models here.
 
@@ -15,3 +15,5 @@ class ServicioAdmin(admin.ModelAdmin):
 
 admin.site.register(Servicio, ServicioAdmin)
 admin.site.register(Reserva, ReservaAdmin)
+admin.site.register(TipoServicio)
+

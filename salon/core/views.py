@@ -62,4 +62,22 @@ def Agendar(request):
 
         agenda.save()
 
+        #ver si funciona esto
+        form_nombre = nam + last
+        form_email = request.POST.get('txtEmail')
+       
+        
+        email_from = settings.EMAIL_HOST_USER
+        email_to = [form_email]
+        asunto = 'Reserva'
+        email_mensaje ='''Gracias por agendar %s 
+        dentro de unos minutos sera contactado para agendar la hora'''%(form_nombre)
+
+        send_mail(asunto,
+            email_mensaje,
+            email_from,
+            email_to,
+            fail_silently=True)
+
+
     return render(request, 'core/agendar.html',data)
