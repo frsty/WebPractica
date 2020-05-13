@@ -26,6 +26,7 @@ SECRET_KEY = '8(sh#6#5!2&8anix-bom*7a6xe^9hkc-obz7w$r!_^g=&d22qq'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER ='setsunaki8@gmail.com'
