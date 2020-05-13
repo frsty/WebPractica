@@ -1,6 +1,10 @@
 # WebPractica
 primer adelanto del proyecto en django 
 
+la pagina ya envia correo cuando uno se registra en ella para activar la cuenta 
+ver si quieres modicar el texto de los correo en los archivos de esta ruta
+core/registration/nombre_archivo.txt
+
 -formmulario, css y vista de agendar agregados 
 -para acceder a la pagina admin: 
    user: admin pass : adminadmin
