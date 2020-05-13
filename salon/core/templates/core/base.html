@@ -54,14 +54,14 @@
                         <a class="nav-link" href="#">{{ user.username }}</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'logout' %}">Cerrar sesion</a>
+                        <a class="nav-link" href="{% url 'auth_logout' %}">Cerrar sesion</a>
                     </li>
                     {% else %}
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'login' %}">Iniciar sesion</a>
+                        <a class="nav-link" href="{% url 'auth_login' %}">Iniciar sesion</a>
                     </li>
                     <li class="nav-item active ">
-                        <a class="nav-link" href="">Registrar</a>
+                        <a class="nav-link" href="{% url 'registration_register' %}">Registrar</a>
                     </li>
                     {% endif %}
                 </ul>

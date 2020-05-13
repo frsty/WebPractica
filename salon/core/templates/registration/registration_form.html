@@ -1,11 +1,22 @@
-{% extends "base.html" %}
+{% extends "core/base.html" %}
 {% load i18n %}
+{% load crispy_forms_tags %}
 
 {% block content %}
+<br>
+<div class="row">
+<div class="col-sm-4">
+
+</div>
+<div class="col-sm-4">
+  <h2><strong>Registrate</strong></h2>
 <form method="post" action=".">
   {% csrf_token %}
-  {{ form.as_p }}
+  {{ form|crispy }}
 
-  <input type="submit" value="{% trans 'Enviar' %}" />
+  <input class="btn btn-primary" type="submit" value="{% trans 'Enviar' %}" />
 </form>
+</div>
+</div>
+<br>
 {% endblock %}

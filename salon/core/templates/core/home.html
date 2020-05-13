@@ -68,7 +68,7 @@
                 Contáctanos
             </a> 
             O
-            <a href="#correo">
+            <a href="#contacto">
                 Escríbenos
                 <svg class="bi bi-envelope-open" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M.243 6.929l.514-.858L8 10.417l7.243-4.346.514.858L8 11.583.243 6.93z" clip-rule="evenodd"/>
@@ -99,7 +99,7 @@
     <br>
     <div class="row">
         <div class="col-sm-4">
-            <a href="" style="text-decoration:none">
+            <a href="{% url 'agendar' %}" style="text-decoration:none">
                 <button id="btnAgendar" class="circleButton" >
                     <h5 class="textoAgendar">Agenda aquí</h5>
                  </button>
@@ -125,9 +125,10 @@
                 {% endfor %}
 
             </table>
+            <h6>Algunos precios pueden variar</h6>  
         </div>
         
-    </div>
+    </div>  
 </div>
 <br>
 <div class="division" id="precios"></div>

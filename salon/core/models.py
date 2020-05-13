@@ -14,7 +14,6 @@ class Reserva(models.Model):
     nombre = models.CharField(max_length=50)
     telefono = models.IntegerField()
     email = models.EmailField(verbose_name="Correo")
-    hora = models.TimeField()
     fecha = models.DateField()
     servi = models.ForeignKey(Servicio, on_delete=models.CASCADE, verbose_name="Servicio")
     
