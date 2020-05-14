@@ -4,9 +4,9 @@ from .models import Reserva, Servicio, TipoServicio
 # Register your models here.
 
 class ReservaAdmin(admin.ModelAdmin):
-    list_display = ['nombre', 'telefono','email','fecha','servi']
+    list_display = ['nombre', 'telefono','email','fecha','servi','tipo']
     search_fields = ['email','nombre']
-    list_filter = ['servi']
+    list_filter = ['tipo']
     list_per_page = 10
 
 class ServicioAdmin(admin.ModelAdmin):

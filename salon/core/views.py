@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
-from .models import Servicio, Reserva
+from .models import Servicio, Reserva, TipoServicio
 from django.contrib.auth.decorators import login_required 
 from .forms import CustomUserForm, ContactForm
 from django.contrib.auth import login, authenticate
@@ -42,8 +42,10 @@ def Home(request):
 @login_required
 def Agendar(request): 
     serv = Servicio.objects.all()
+    tipo = TipoServicio.objects.all()
     data = {
-        'servicio':serv
+        'servicio':serv,
+        'tipo': tipo
     }
 
     if request.POST:
@@ -56,10 +58,16 @@ def Agendar(request):
         agenda.email = request.POST.get('txtEmail')
         agenda.hora = request.POST.get('txtHora')
         agenda.fecha = request.POST.get('txtFecha')
+       
+        #saca el servicio
         service = Servicio()
         service.id = request.POST.get('cbService')
         agenda.servi = service
 
+         #saca el tipo de servicio
+        tipoServ = TipoServicio()
+        tipoServ.id = request.POST.get('cbTipoService')
+        agenda.tipo = tipoServ
         agenda.save()
 
         #ver si funciona esto

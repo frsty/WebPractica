@@ -59,13 +59,21 @@
                             <div class="form-group">
                                 <label for="sel1">Lista de servicios</label>
                                 <select class="form-control" id="cbService" onchange="GetServicio();" name="cbService">
-                                    <option value="">Seleccione</option> 
-                                    {% for s in servicio %}
-                                    
-                                     <option value="{{s.id}}">{{s.nombre}}</option> 
-
+                                    <option value="">Seleccione Tipo de servicio</option> 
+                                    {% for t in tipo %}
+                                     <option value="{{t.id}}">{{t.tipo}}</option> 
                                     {% endfor%}
                                 </select>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="">Servicios</label>
+                                <select class="form-control" id="" onchange="GetServicio();" name="cbTipoService">
+                                    <Option>Selecciones el servicio</Option> 
+                                    {% for s in servicio %}
+                                        <option value="{{s.id}}">{{s.nombre}}</option>
+                                    {% endfor %}  
+                                 </select>
                             </div>
                             <!--<div class="form-group">
                                 <label>Precio</label>
