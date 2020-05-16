@@ -57,23 +57,27 @@
     
                             </div>
                             <div class="form-group">
-                                <label for="sel1">Lista de servicios</label>
-                                <select class="form-control" id="cbService" onchange="GetServicio();" name="cbService">
-                                    <option value="">Seleccione Tipo de servicio</option> 
+                                <label for="">Lista de servicios</label>
+                                <select class="form-control" id="cbService" onchange="CambiarTipo()" name="cbService">
+                                    <option value="">Seleccione un Servicio</option>
+
                                     {% for t in tipo %}
-                                     <option value="{{t.id}}">{{t.tipo}}</option> 
-                                    {% endfor%}
+
+                                        <option value="{{t.id}}">{{t.tipo}}</option>
+
+                                    {% endfor %}
                                 </select>
 
                             </div>
                             <div class="form-group">
                                 <label for="">Servicios</label>
-                                <select class="form-control" id="" onchange="GetServicio();" name="cbTipoService">
+                                <select class="form-control" id="cbTipoService" onchange="" name="cbTipoService">
                                     <Option>Selecciones el servicio</Option> 
-                                    {% for s in servicio %}
+                                    <!-- {% for s in servicio %}
                                         <option value="{{s.id}}">{{s.nombre}}</option>
-                                    {% endfor %}  
+                                    {% endfor %}   -->
                                  </select>
+                                 
                             </div>
                             <!--<div class="form-group">
                                 <label>Precio</label>
@@ -96,5 +100,28 @@
     </div>
 
 </div>
+
+<script type="text/javascript">
+    let serviciosyTipos = {};
+    serviciosyTipos[1]=["probando","esta","cosa"]
+    serviciosyTipos[2]=["ahora","con","masajes"]
+
+function CambiarTipo(){
+    let servList = document.getElementById("cbService");
+    let tipoList = document.getElementById("cbTipoService");
+    let selectServ = servList.options[servList.selectedIndex].value;
+    while (tipoList.options.length){
+        tipoList.remove(0);
+    }
+    let serviciosList = serviciosyTipos[selectServ];
+    if(serviciosList){
+        let i
+        for(i = 0;i < serviciosList.length; i++){
+            let ss = new Option(serviciosList[i],i);
+            tipoList.options.add(ss);
+        }
+    }
+}
+</script>
 
 {% endblock %}

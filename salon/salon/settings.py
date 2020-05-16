@@ -25,11 +25,11 @@ SECRET_KEY = '8(sh#6#5!2&8anix-bom*7a6xe^9hkc-obz7w$r!_^g=&d22qq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','.pythonanywhere.com']
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER ='setsunaki8@gmail.com'
-EMAIL_HOST_PASSWORD = 'sakurasou1'
+EMAIL_HOST_USER ='seb.contacto0@gmail.com'
+EMAIL_HOST_PASSWORD = 'sakullamon1'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

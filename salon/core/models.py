@@ -10,10 +10,10 @@ class TipoServicio(models.Model):
         
 
 class Servicio(models.Model): 
-    tipo = models.ForeignKey(TipoServicio, on_delete=models.CASCADE)
+   
     nombre = models.CharField(max_length=200)
     precio = models.IntegerField()
-    
+    tipo = models.ForeignKey(TipoServicio, on_delete=models.CASCADE)
 
     def __str__(self):
 
@@ -25,7 +25,7 @@ class Reserva(models.Model):
     email = models.EmailField(verbose_name="Correo")
     fecha = models.DateField()
     servi = models.ForeignKey(Servicio,on_delete=models.CASCADE, verbose_name="Servicio")
-    tipo = models.ForeignKey(TipoServicio, on_delete=models.CASCADE, verbose_name="Tipo servicio")
+    tipo = models.ForeignKey(TipoServicio, on_delete=models.CASCADE, verbose_name="Tipo")
     
     def __str__(self):
         return self.nombre

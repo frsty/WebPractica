@@ -5,13 +5,19 @@ from .models import Servicio, Reserva, TipoServicio
 from django.contrib.auth.decorators import login_required 
 from .forms import CustomUserForm, ContactForm
 from django.contrib.auth import login, authenticate
+from django.core import serializers
+from django.http import JsonResponse
+
+
 
 
 # Create your views here.
 
 def Home(request):
-    #para ver los precios en el home 
+    #para ver los precios en el home
+
     serv = Servicio.objects.all()
+
     #form contacto
     form = ContactForm(request.POST or None)
     if form.is_valid():
@@ -23,13 +29,18 @@ def Home(request):
         asunto = "Consulta de %s" %(form_nombre)
         email_from = settings.EMAIL_HOST_USER
         email_to = [email_from]
-        email_mensaje = '''Nombre: %s telefono de contacto: %s 
-            duda: %s Correo de contacto %s''' %(form_nombre, form_telefono, form_mensaje, form_email)
+        email_mensaje = '''
+            Nombre: %s 
+            telefono de contacto: %s 
+            duda: %s 
+            Correo de contacto %s
+            ''' %(form_nombre, form_telefono, form_mensaje, form_email)
         send_mail(asunto,
             email_mensaje,
             email_from,
             email_to,
             fail_silently=True)
+
 
 
     data = {
@@ -41,11 +52,13 @@ def Home(request):
     
 @login_required
 def Agendar(request): 
+    
+    tipoSs = TipoServicio.objects.all()
     serv = Servicio.objects.all()
-    tipo = TipoServicio.objects.all()
+
     data = {
         'servicio':serv,
-        'tipo': tipo
+        'tipo': tipoSs
     }
 
     if request.POST:
@@ -86,6 +99,5 @@ def Agendar(request):
             email_from,
             email_to,
             fail_silently=True)
-
-
+    
     return render(request, 'core/agendar.html',data)
