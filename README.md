@@ -18,3 +18,4 @@ todos los pip hacerlo en el entorno virtual
    pip install django-registration-redux
    pip install django-crispy-forms
    pip install pylint-django(no estoy seguro pero esto es cuando da error en el visual nada mas)
+   pip install django-progressive-web-app(para el service worker)
