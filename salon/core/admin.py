@@ -10,7 +10,7 @@ class ReservaAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 class ServicioAdmin(admin.ModelAdmin):
-    list_display = ['nombre','precio']
+    list_display = ['nombre','precio','tipo']
 
 
 admin.site.register(Servicio, ServicioAdmin)

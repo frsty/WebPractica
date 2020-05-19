@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     #appa tercero
     'registration',
     'crispy_forms',
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -138,4 +139,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'serviceworker.js')
 
