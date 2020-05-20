@@ -7,6 +7,7 @@ from .forms import CustomUserForm, ContactForm
 from django.contrib.auth import login, authenticate
 from django.core import serializers
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 
 
@@ -49,24 +50,38 @@ def Home(request):
     }
 
     return render(request, 'core/home.html', data)
-    
+
+   
 @login_required
 def Agendar(request): 
     
     tipoSs = TipoServicio.objects.all()
-    serv = Servicio.objects.all()
+    serv = Servicio.objects.none()
 
-    data = {
-        'servicio':serv,
-        'tipo': tipoSs
-    }
+   
+   
+    data = {}
+    try:
+        action = request.POST['action']
+        if action == 'buscar_TipoServicio':
+            data = []
+            for i in Servicio.objects.filter(id=request.POST['id']):
+                data.append({'id': i.id , 'name': i.nombre})
+                
+        else:
+            data['error'] = 'Ha ocurrido un error'
+    except Exception as e:
+        data['error'] = str(e)
+        
+    response = JsonResponse(data, safe=False)
+        
 
     if request.POST:
         
         agenda = Reserva()
         nam = request.POST.get('txtNombre')
         last = request.POST.get('txtApellido')
-        agenda.nombre = nam + last
+        agenda.nombre =  request.POST.get('txtNombre') +' '+request.POST.get('txtApellido')
         agenda.telefono = request.POST.get('txtTelefono')
         agenda.email = request.POST.get('txtEmail')
         agenda.hora = request.POST.get('txtHora')
@@ -74,13 +89,13 @@ def Agendar(request):
        
         #saca el servicio
         service = Servicio()
-        service.id = request.POST.get('cbService')
-        agenda.servi = service
+        service.id = request.POST.get('cbTipoService')
+        agenda.servi = service.id
 
          #saca el tipo de servicio
         tipoServ = TipoServicio()
-        tipoServ.id = request.POST.get('cbTipoService')
-        agenda.tipo = tipoServ
+        tipoServ.id = request.POST.get('cbService')
+        agenda.tipo = tipoServ.id
         agenda.save()
 
         #ver si funciona esto
@@ -99,5 +114,12 @@ def Agendar(request):
             email_from,
             email_to,
             fail_silently=True)
+
+    datosRetorno = {
+        'servicio':serv,
+        'tipo': tipoSs,
+        'json':response.content
+        
+    }
     
-    return render(request, 'core/agendar.html',data)
+    return render(request, 'core/agendar.html',datosRetorno)
