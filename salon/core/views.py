@@ -6,8 +6,10 @@ from django.contrib.auth.decorators import login_required
 from .forms import CustomUserForm, ContactForm
 from django.contrib.auth import login, authenticate
 from django.core import serializers
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from datetime import date
+
 
 
 
@@ -18,6 +20,8 @@ def Home(request):
     #para ver los precios en el home
 
     serv = Servicio.objects.all()
+
+
 
     #form contacto
     form = ContactForm(request.POST or None)
@@ -57,31 +61,38 @@ def Agendar(request):
     
     tipoSs = TipoServicio.objects.all()
     serv = Servicio.objects.none()
+    hoy = date.today().isoformat() # Fecha actual
+         
+    if request.GET:
 
-   
-   
-    data = {}
-    try:
-        action = request.POST['action']
+        action = request.GET['action']
         if action == 'buscar_TipoServicio':
             data = []
-            for i in Servicio.objects.filter(id=request.POST['id']):
-                data.append({'id': i.id , 'name': i.nombre})
-                
+            for i in Servicio.objects.filter(tipo_id=request.GET['id']):
+                data.append({'id': i.id , 'name': i.nombre ,'precio': i.precio})
+                    
         else:
             data['error'] = 'Ha ocurrido un error'
-    except Exception as e:
-        data['error'] = str(e)
+
+        print(data)
+        return JsonResponse(data, safe=False)
+    
         
-    response = JsonResponse(data, safe=False)
-        
+    #response = JsonResponse(data, safe=False)
+
+    datosRetorno = {
+        'servicio':serv,
+        'tipo': tipoSs,
+        'fecha': hoy        
+    }  
 
     if request.POST:
         
         agenda = Reserva()
         nam = request.POST.get('txtNombre')
         last = request.POST.get('txtApellido')
-        agenda.nombre =  request.POST.get('txtNombre') +' '+request.POST.get('txtApellido')
+        #agenda.nombre = /*str(nam)  + str(last) */
+        agenda.nombre = nam  + last
         agenda.telefono = request.POST.get('txtTelefono')
         agenda.email = request.POST.get('txtEmail')
         agenda.hora = request.POST.get('txtHora')
@@ -115,11 +126,8 @@ def Agendar(request):
             email_to,
             fail_silently=True)
 
-    datosRetorno = {
-        'servicio':serv,
-        'tipo': tipoSs,
-        'json':response.content
-        
-    }
+       
+
+   
     
     return render(request, 'core/agendar.html',datosRetorno)

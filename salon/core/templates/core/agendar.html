@@ -21,8 +21,9 @@
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
-                <form action="buscar_TipoServicio" method="POST">
+                <form action="" method="POST">
                     {% csrf_token %}
+                    
                     <!--Cambiar despues-->
                     <div class="card text-left">
                         <div class="card-body">
@@ -47,7 +48,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Fecha</label>
-                                <input type="date" required="required" class="form-control" name="txtFecha" placeholder="example@example.com">
+                                <input type="date" required="required" class="form-control" min="{{ fecha }}" name="txtFecha">
     
                             </div>
                             <div class="form-group">
@@ -61,9 +62,6 @@
 
                                     {% endfor %}
                                 </select>
-                            <p>{{ tipo }}</p>
-                            <p>{{ servicio }}</p>
-                            <p>{{ json }}</p>
                             </div>
                             <div class="form-group">
                                 <label for="">Servicios</label>
@@ -73,12 +71,6 @@
                                  </select>
                                  
                             </div>
-                            <!--<div class="form-group">
-                                <label>Precio</label>
-
-                                <input type="text" onchange="" readonly>
-
-                            </div>-->
                             <a href=""><button type="submit" class="btn btn-primary">Agendar</button></a>
                             <a href="{% url 'home' %}" style="color: white">Volver<Button type="button"
                                     class="btn btn-danger">Volver</Button> </a>
@@ -145,18 +137,18 @@ $(function () {
     console.log("inicio funcion")
     $('select[name="cbService"]').on('change', function () {
         var id = $(this).val();
-        console.log(id)
+        
         var select_products = $('select[name="cbTipoService"]');
         var options = '<option value="">--------------------</option>';
-        console.log(select_products )
+        
         if(id === ''){
             select_products.html(options);
             return false;
-            console.log(" vacio")
+            
         }
         $.ajax({
             url: window.location.pathname,
-            type: 'POST',
+            type: 'GET',
             data: {
                 'action': 'buscar_TipoServicio',
                 'id': id
@@ -165,20 +157,16 @@ $(function () {
         }).done(function (data) {
             if (!data.hasOwnProperty('error')) {
                 $.each(data, function (key, value) {
-                    options+='<option value="'+value.id+'">'+value.name+'</option>';
+                    options+='<option value="'+value.id+'">'+value.name+'[Precio:$'+ value.precio+']</option>';
                 });
                 return false;
             }
             message_error(data.error);
-            console.log(" error: "+ data.error)
+            
         }).fail(function (jqXHR, textStatus, errorThrown) {
             alert(textStatus + ': ' + errorThrown);
         }).always(function (data) {
             select_products.html(options);
-            console.log("Lista servicios: ")
-            console.log(data)
-            console.log("Lista opciones: ")
-            console.log(options)
         });
     });
 });
