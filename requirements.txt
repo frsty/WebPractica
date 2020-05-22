@@ -1,0 +1,5 @@
+django
+django-registration-redux
+django-crispy-forms
+pylint-django
+django-progressive-web-app
