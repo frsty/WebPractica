@@ -99,14 +99,15 @@ def Agendar(request):
         agenda.fecha = request.POST.get('txtFecha')
        
         #saca el servicio
-        service = Servicio()
-        service.id = request.POST.get('cbTipoService')
-        agenda.servi = service.id
+        
+        service = Servicio.objects.filter(id= request.POST.get('cbTipoService')).first()
+        
+        agenda.servi = Servicio(service).pk
 
-         #saca el tipo de servicio
-        tipoServ = TipoServicio()
-        tipoServ.id = request.POST.get('cbService')
-        agenda.tipo = tipoServ.id
+        #saca el tipo de servicio
+
+        tipoServ = TipoServicio.objects.filter(id=request.POST.get('cbService')).first()
+        agenda.tipo = TipoServicio(tipoServ).pk
         agenda.save()
 
         #ver si funciona esto
@@ -131,3 +132,11 @@ def Agendar(request):
    
     
     return render(request, 'core/agendar.html',datosRetorno)
+
+def RevisarAgendas(request):
+
+    datos={
+
+    }
+
+    return render(request, '',datos)
