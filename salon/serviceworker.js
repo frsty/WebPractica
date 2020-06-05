@@ -1,4 +1,4 @@
-var CACHE_NAME = 'my-site-cache-v1';
+var CACHE_NAME = 'site-cache';
 var urlsToCache = [
     '/',
     '/static/core/css/estilos.css'

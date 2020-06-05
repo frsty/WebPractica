@@ -6,13 +6,15 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="/manifest.json">
+   
     {% load pwa %}
     {% progressive_web_app_meta %}
 
     <!-- Bootstrap CSS -->
     {% load static %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="icon" href="{% static  'core/img/logo.ico' %}" type="ico">
     {% block css%}
 
     {% endblock %}
@@ -31,7 +33,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-sm navbar-dark navbar-inverse">
             <a class="navbar-brand" href="{% url 'home' %}">
-                <img src="{% static  'core/img/logo.jpg' %}" alt="logo" style="width:40px;">
+                <img src="{% static  'core/img/logo.png' %}" alt="logo" style="width:40px;">
             </a>
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
                 data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"

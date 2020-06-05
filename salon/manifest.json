@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json.schemastore.org/web-manifest",
+    "name": "Paola Toledo Stylist",
+    "short_name": "Paola Stylist",
+    "description": "Aplicación de peluqueria para Paola Toledo",
+    "start_url": "./?utm_source=web_app_manifest",
+    "display": "fullscreen",
+    "background_color": "#ddd",
+    "theme_color": "#cce7e8",
+    "icons":[
+        {
+            "src": "/logo.png",
+            "sizes":"96x93",
+            "type": "image/png"
+        }
+    ]
+  }

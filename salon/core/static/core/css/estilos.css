@@ -141,8 +141,8 @@ h2{
     background-color: #cfffdf; /* Add a dark-grey background on hover */
   }
   .circleButton {
-    width: 13rem;
-    height: 13rem;
+    width: 12rem;
+    height: 12rem;
     display: flex;
     -webkit-border-radius: 50%;
     border-radius: 50%;
